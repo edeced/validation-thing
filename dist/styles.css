@@ -580,20 +580,50 @@ video {
   }
 }
 
-.base-input {
+base-input {
   --tw-border-opacity: 1;
   border-color: rgba(209, 213, 219, var(--tw-border-opacity));
 }
 
-.base-input:focus {
+base-input:focus {
   --tw-border-opacity: 1;
   border-color: rgba(75, 85, 99, var(--tw-border-opacity));
 }
 
-.base-input {
+base-input {
   border-bottom-width: 2px;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.success-input {
+  --tw-border-opacity: 1;
+  border-color: rgba(110, 231, 183, var(--tw-border-opacity));
+  border-width: 2px;
+  width: 100%;
+}
+
+#my-input {
+}
+
+.class-name{
+}
+
+.success {
+  --tw-bg-opacity: 1;
+  background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+  display: block;
+  padding: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.error {
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+  display: block;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
