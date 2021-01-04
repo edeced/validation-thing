@@ -8,6 +8,6 @@
     "tailwindcss": "^2.0.1"
   },
   "scripts": {
-    "build" : "yarn run tailwindcss build ./src/tailwind.css -o ./dist/styles.css"
+    "tw" : "tailwindcss build ./src/tailwind.css -o ./dist/styles.css"
   }
 }

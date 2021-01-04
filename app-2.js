@@ -1,21 +1,25 @@
 // 1. get DOM element
-const form = document.getElementById('registration-form')
+const form = document.querySelector('#form')
 
-const username = document.getElementById('username')
-// const email = document.getElementById('email')
-// const password1 = document.getElementById('password1')
-// const password2 = document.getElementById('password2')
+const input = document.querySelectorAll('input')
+
+const username = document.querySelector('#username')
+const email = document.querySelector('#email')
+const password1 = document.querySelector('#password1')
+const password2 = document.querySelector('#password2')
+
+
 
 // adding event listener on the form
 form.addEventListener('submit', function (e) {
   e.preventDefault()
 
+
   validateEmpty(username)
-  // validateEmpty(email)
+  validateEmpty(email)
   // validateMinLength(username)
-  //validateEmpty(password)
-  // validateFirstName(firstName)
-  // validateIsEmail(email)
+  validateEmpty(password1)
+  validateEmpty(password2)
 
   //@TODO: add the validation for email (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
@@ -35,15 +39,45 @@ form.addEventListener('submit', function (e) {
 
 })
 
+function validateEmpty(input) {
+
+  if (input.value === '') {
+    showError(input)
+    return true
+  } else {
+    showSuccess(input)
+    return false
+  }
+}
+
+function showError(input) {
+  input.className='error'
+  input.nextElementSibling.classList.remove('hidden')
+}
+
+function showSuccess(input) {
+  input.className='success-input'
+  input.nextElementSibling.className='hidden'
+}
+
+
+
 // input: HTMLInputElement
-// function validateEmpty (input) {
-//   const inputName = input.name
-//   if (input.value === '') {
-//     showError(input, `${inputName} is empty`)
-//   } else {
-//     showSuccess(input)
-//   }
+// function validate(username) {
+//   if (username.value === '') {
+//     console.log('error')
+//   } 
 // }
+
+// function showError (input) {
+//   input.nextElementSibling.innerHTML = '<small class="error">❌ Please enter your username.</small>'
+// }
+
+// function showSuccess (input) {
+//   input.nextElementSibling.innerHTML = '<small class="success">✅ Thank you</small>'
+//   // console.log('✅ Thank you')
+// }
+
 
 // function validatePassMatch (password1, password2) {
 //   if (password1.value === password2.value) {
@@ -63,33 +97,33 @@ form.addEventListener('submit', function (e) {
 // }
 
 // returns boolean
-function emailValidates (email) {
+// function emailValidates (email) {
   // Regular Expression
   //@TODO:  find implementation on SO
   //
-  return true
-}
+//   return true
+// }
 
-// input: HTMLInputElement
-function validateMinLength (input) {
-  // console.log(input.value.length)
-  if (input.value.length < 6) {
-    showError(input, 'Username too short')
-  } else {
-    showSuccess(input)
-  }
-}
+// // input: HTMLInputElement
+// function validateMinLength (input) {
+//   // console.log(input.value.length)
+//   if (input.value.length < 6) {
+//     showError(input, 'Username too short')
+//   } else {
+//     showSuccess(input)
+//   }
+// }
 
-// input: HTMLInputElement (DOM) | msg: string
-function showError (input, msg) {
-  input.nextElementSibling.innerHTML = `<small class="error">${msg}</small>`
+// // input: HTMLInputElement (DOM) | msg: string
+// function showError (input, msg) {
+//   input.nextElementSibling.innerHTML = `<small class="error">${msg}</small>`
 
-  //reverts the success border
-  input.className='base-input'
-}
+//   //reverts the success border
+//   input.className='base-input'
+// }
 
-function showSuccess (input) {
-  input.className = 'success-input'
-  // removes the flash message
-  input.nextElementSibling.innerHTML = ''
-}
+// function showSuccess (input) {
+//   input.className = 'success-input'
+//   // removes the flash message
+//   input.nextElementSibling.innerHTML = ''
+// }
