@@ -1,7 +1,7 @@
 // 1. get DOM element
 const form = document.querySelector('#form')
 
-const input = document.querySelectorAll('input')
+// const input = document.querySelectorAll('input')
 
 const username = document.querySelector('#username')
 const email = document.querySelector('#email')
@@ -17,9 +17,11 @@ form.addEventListener('submit', function (e) {
 
   validateEmpty(username)
   validateEmpty(email)
-  // validateMinLength(username)
   validateEmpty(password1)
   validateEmpty(password2)
+  // validateMinLength(input)
+  // validateIsEmail(email)
+  validatePassMatch(password1, password2)
 
   //@TODO: add the validation for email (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
@@ -42,6 +44,7 @@ form.addEventListener('submit', function (e) {
 function validateEmpty(input) {
 
   if (input.value === '') {
+    const inputName = input.value
     showError(input)
     return true
   } else {
@@ -50,16 +53,26 @@ function validateEmpty(input) {
   }
 }
 
-function showError(input) {
+function showError (input) {
   input.className='error'
   input.nextElementSibling.classList.remove('hidden')
 }
 
-function showSuccess(input) {
+function showSuccess (input) {
   input.className='success-input'
   input.nextElementSibling.className='hidden'
 }
 
+function validatePassMatch (password1, password2) {
+  password1.value = 'ececed'
+  password2.value = 'eceded'
+  console.log(password1.value, password2.value)
+  // if password1.value === password2.value {
+  //   showSuccess(password1, password2)
+  // } else {
+  //   showSuccess(password1, password2)
+  // }
+}
 
 
 // input: HTMLInputElement
