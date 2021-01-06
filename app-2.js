@@ -5,8 +5,11 @@ const form = document.querySelector('#form')
 
 const username = document.querySelector('#username')
 const email = document.querySelector('#email')
-const password1 = document.querySelector('#password1')
-const password2 = document.querySelector('#password2')
+const password = document.querySelectorAll(`input[type=password`)
+// const password1 = document.querySelector('#password1')
+// const password2 = document.querySelector('#password2')
+
+console.log(password)
 
 
 
@@ -63,10 +66,11 @@ function showSuccess (input) {
   input.nextElementSibling.className='hidden'
 }
 
-function validatePassMatch (password1, password2) {
-  password1.value = 'ececed'
-  password2.value = 'eceded'
-  console.log(password1.value, password2.value)
+function validatePassMatch () {
+  if (password.value === password.value) {
+    console.log(password.value)
+  } 
+  // console.log(password1.value, password2.value)
   // if password1.value === password2.value {
   //   showSuccess(password1, password2)
   // } else {

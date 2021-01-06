@@ -8,6 +8,7 @@
     "tailwindcss": "^2.0.1"
   },
   "scripts": {
+    "dev" : "live-server .",
     "tw" : "tailwindcss build ./src/tailwind.css -o ./dist/styles.css"
   }
 }
