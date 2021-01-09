@@ -1,7 +1,7 @@
 // 1. get DOM element
 const form = document.querySelector('#form')
 
-// const input = document.querySelectorAll('input')
+const input = document.querySelectorAll('input')
 
 // const username = document.querySelector('#username')
 // const email = document.querySelector('#email')
@@ -10,58 +10,78 @@ const form = document.querySelector('#form')
 // const password2 = document.querySelector('#password2')
 // const userInput = getFormInput('#username')
 
-// getFormInput('#username')
-// getFormInput('#email')
-// getFormInput('#password')
-// getFormInput('#password2')
-
-// console.log(password)
- function getFormInput(inputName){
-   const formInput = document.querySelector(inputName)
-   console.log(formInput)
- }
 
 
-
-
+// adding event listener on the form
 form.addEventListener('submit', function (e) {
   e.preventDefault()
 
+validateFormInput('#username')
+validateFormInput('#email')
+validateFormInput('#password')
+validateFormInput('#password2')
 
-  validateEmpty(username)
-  validateEmpty(email)
-  validateEmpty(password)
-  validateEmpty(password2)
-  // validateMinLength(input)
+// console.log(password)
+ function validateFormInput(inputName){
+  const formInput = document.querySelector(inputName)
+  // console.log(formInput)
+    if (formInput.value===''){
+      console.log('empty')
+    } else {
+      console.log('not empty')
+    }
+  
+ }
+
+
+  // validateEmpty(username)
+  // validateEmpty(email)
+  // validateEmpty(password)
+  // validateEmpty(password2)
+  // // validateMinLength(input)
+  // // validateIsEmail(email)
+  // validatePassMatch(password, password2)
+
+  //@TODO: add the validation for email (Code Challenge 5a)
+  //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
+  //@TODO: Code Challenge 5c: Starting from your refactored code,
+  // 1. Implement and use the validatePassMatch() function to confirm both passwords match
+  // 2. Implement and use the emailValidates() function to confirm it's a valid email. See: https://stackoverflow.com/a/46181
+
+ //@TODO: add the validation for email (Code Challenge 5a)
+  //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
   // validateIsEmail(email)
-  validatePassMatch(password, password2)
+ 
+ 
+  //@TODO: add the validation for password (Code Challenge 5a)
+  //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
+  // validatePassMatch(password)
+  // validatePass2Match(password2)
+
 })
 
-function validateEmpty(input) {
-  // console.log(input)
-  const inputName = input.name
-  if (input.value ==='') {
-    showError(input,)
-  } else {
-    showSuccess(input,)
-  }
+// function validateEmpty(input) {
+//   const inputName = input.name
+//   if (input.value ==='') {
+//     showError(input,'${inputName} field is empty`)
+//   } else {
+//     showSuccess(input, '${inputName} is entered`)
+//   }
 
-}
+// }
 
-function showError (input){
-  input.nextElementSibling.innerHTML = `<small class="text-red-500">❌ Empty</small>`
-  input.className='error'
-}
+// function showError (input) {
+//   input.className='error'
+// }
 
-function showSuccess (input) {
-  input.nextElementSibling.innerHTML = `<small class="text-white">✅ Thank you</small>`
-  input.className='success-input'
-}
+// function showSuccess (input) {
+//   input.className='success-input'
+// }
 
-function validatePassMatch (password1, password2) {
-  if (password.value!==password2.value && password.value==='') {
-    showError(pa) }
-  }
+// function validatePassMatch (password1, password2) {
+//   if (password.value!==password2.value && password.value==='') {
+//     showError(pa) }
+//   }
 //   } else if (password1.value ) {}
   // console.log(password1.value, password2.value)
   // if password1.value === password2.value {
