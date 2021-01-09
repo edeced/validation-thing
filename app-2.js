@@ -3,80 +3,73 @@ const form = document.querySelector('#form')
 
 // const input = document.querySelectorAll('input')
 
-const username = document.querySelector('#username')
-const email = document.querySelector('#email')
-const password = document.querySelectorAll(`input[type=password`)
-// const password1 = document.querySelector('#password1')
+// const username = document.querySelector('#username')
+// const email = document.querySelector('#email')
+// const password = document.querySelectorAll(`input[type=password]`)
+// const password1 = document.querySelector('#password')
 // const password2 = document.querySelector('#password2')
+// const userInput = getFormInput('#username')
 
-console.log(password)
+// getFormInput('#username')
+// getFormInput('#email')
+// getFormInput('#password')
+// getFormInput('#password2')
+
+// console.log(password)
+ function getFormInput(inputName){
+   const formInput = document.querySelector(inputName)
+   console.log(formInput)
+ }
 
 
 
-// adding event listener on the form
+
 form.addEventListener('submit', function (e) {
   e.preventDefault()
 
 
   validateEmpty(username)
   validateEmpty(email)
-  validateEmpty(password1)
+  validateEmpty(password)
   validateEmpty(password2)
   // validateMinLength(input)
   // validateIsEmail(email)
-  validatePassMatch(password1, password2)
-
-  //@TODO: add the validation for email (Code Challenge 5a)
-  //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
-  //@TODO: Code Challenge 5c: Starting from your refactored code,
-  // 1. Implement and use the validatePassMatch() function to confirm both passwords match
-  // 2. Implement and use the emailValidates() function to confirm it's a valid email. See: https://stackoverflow.com/a/46181
-
- //@TODO: add the validation for email (Code Challenge 5a)
-  //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
-  // validateIsEmail(email)
- 
- 
-  //@TODO: add the validation for password (Code Challenge 5a)
-  //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
-  // validatePassMatch(password)
-  // validatePass2Match(password2)
-
+  validatePassMatch(password, password2)
 })
 
 function validateEmpty(input) {
-
-  if (input.value === '') {
-    const inputName = input.value
-    showError(input)
-    return true
+  // console.log(input)
+  const inputName = input.name
+  if (input.value ==='') {
+    showError(input,)
   } else {
-    showSuccess(input)
-    return false
+    showSuccess(input,)
   }
+
 }
 
-function showError (input) {
+function showError (input){
+  input.nextElementSibling.innerHTML = `<small class="text-red-500">❌ Empty</small>`
   input.className='error'
-  input.nextElementSibling.classList.remove('hidden')
 }
 
 function showSuccess (input) {
+  input.nextElementSibling.innerHTML = `<small class="text-white">✅ Thank you</small>`
   input.className='success-input'
-  input.nextElementSibling.className='hidden'
 }
 
-function validatePassMatch () {
-  if (password.value === password.value) {
-    console.log(password.value)
-  } 
+function validatePassMatch (password1, password2) {
+  if (password.value!==password2.value && password.value==='') {
+    showError(pa) }
+  }
+//   } else if (password1.value ) {}
   // console.log(password1.value, password2.value)
   // if password1.value === password2.value {
   //   showSuccess(password1, password2)
   // } else {
   //   showSuccess(password1, password2)
   // }
-}
+// }
 
 
 // input: HTMLInputElement
