@@ -27,11 +27,21 @@ validateFormInput('#password2')
   // console.log(formInput)
     if (formInput.value===''){
       console.log('empty')
+      showError(formInput)
     } else {
       console.log('not empty')
+      showSuccess(formInput)
     }
   
  }
+
+ function showError (formInput) {
+    formInput.className='error'
+  }
+  
+  function showSuccess (formInput) {
+    formInput.className='success-input'
+  }
 
 
   // validateEmpty(username)
